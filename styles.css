@@ -1,0 +1,424 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --purple-dark: #0a0a14;
+    --purple-darker: #050508;
+    --purple-neon: #9d4edd;
+    --purple-bright: #c77dff;
+    --purple-glow: rgba(157, 78, 221, 0.5);
+    --purple-glow-strong: rgba(199, 125, 255, 0.8);
+    --violet-neon: #7b2cbf;
+    --text-primary: #ffffff;
+    --text-secondary: #b8b8d4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--purple-darker);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--purple-darker) 0%, var(--purple-dark) 100%);
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    padding: 40px 20px;
+}
+
+.triangle-logo {
+    margin-bottom: 40px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.triangle-svg {
+    width: 150px;
+    height: 150px;
+}
+
+.triangle-glow {
+    fill: none; 
+    stroke: var(--purple-neon);
+    stroke-width: 2;
+    stroke-linejoin: round;
+
+    filter:
+        drop-shadow(0 0 6px rgba(157, 78, 221, 0.6))
+        drop-shadow(0 0 14px rgba(157, 78, 221, 0.35));
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+.hero-title {
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--purple-neon) 0%, var(--purple-bright) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px var(--purple-glow);
+}
+
+.hero-tagline {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.discord-btn {
+    display: inline-block;
+    padding: 16px 40px;
+    background: transparent;
+    border: 2px solid var(--purple-neon);
+    color: var(--purple-neon);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px var(--purple-glow);
+}
+
+.discord-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--purple-glow), transparent);
+    transition: left 0.5s ease;
+}
+
+.discord-btn:hover::before {
+    left: 100%;
+}
+
+.discord-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--purple-bright);
+    box-shadow: 0 0 30px var(--purple-glow-strong), 
+                0 0 60px var(--purple-glow);
+    transform: translateY(-2px);
+}
+
+.discord-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.background-triangles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.1;
+}
+
+.bg-triangle {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: transparent transparent var(--purple-neon) transparent;
+    opacity: 0.3;
+    animation: float-slow 15s ease-in-out infinite;
+}
+
+.bg-triangle-1 {
+    top: 10%;
+    left: 10%;
+    border-width: 0 50px 100px 50px;
+    animation-delay: 0s;
+}
+
+.bg-triangle-2 {
+    top: 60%;
+    right: 15%;
+    border-width: 0 80px 140px 80px;
+    animation-delay: 5s;
+}
+
+.bg-triangle-3 {
+    bottom: 15%;
+    left: 20%;
+    border-width: 0 60px 110px 60px;
+    animation-delay: 10s;
+}
+
+@keyframes float-slow {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.2;
+    }
+    33% {
+        transform: translate(30px, -30px) rotate(120deg);
+        opacity: 0.4;
+    }
+    66% {
+        transform: translate(-20px, 20px) rotate(240deg);
+        opacity: 0.3;
+    }
+}
+
+.about {
+    padding: 100px 0;
+    background: var(--purple-dark);
+    position: relative;
+}
+
+.section-divider {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.divider-triangle {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 25px solid var(--purple-neon);
+    filter: drop-shadow(0 0 10px var(--purple-glow));
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+    color: var(--purple-bright);
+    text-shadow: 0 0 20px var(--purple-glow);
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+    line-height: 1.8;
+    font-weight: 300;
+}
+
+.status {
+    padding: 100px 0;
+    background: var(--purple-darker);
+    position: relative;
+}
+
+.status-content {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.status-info {
+    margin-top: 40px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid var(--purple-neon);
+    border-radius: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px var(--purple-glow);
+    animation: pulse-border 2s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+    0%, 100% {
+        box-shadow: 0 0 20px var(--purple-glow);
+    }
+    50% {
+        box-shadow: 0 0 30px var(--purple-glow-strong);
+    }
+}
+
+.status-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: var(--purple-neon);
+    text-transform: uppercase;
+}
+
+.status-text {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text-primary);
+    letter-spacing: 3px;
+}
+
+.footer {
+    padding: 60px 0 40px;
+    background: var(--purple-darker);
+    border-top: 1px solid rgba(157, 78, 221, 0.2);
+    text-align: center;
+}
+
+.footer-discord-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: transparent;
+    border: 2px solid var(--purple-neon);
+    color: var(--purple-neon);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px var(--purple-glow);
+}
+
+.footer-discord-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--purple-bright);
+    box-shadow: 0 0 25px var(--purple-glow-strong);
+    transform: translateY(-2px);
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in-delay-1 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+.fade-in-delay-2 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+        letter-spacing: 4px;
+    }
+
+    .hero-tagline {
+        font-size: 1.2rem;
+    }
+
+    .triangle-svg {
+        width: 120px;
+        height: 120px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .about-text {
+        font-size: 1rem;
+    }
+
+    .status-text {
+        font-size: 1.5rem;
+    }
+
+    .discord-btn, .footer-discord-btn {
+        padding: 14px 30px;
+        font-size: 0.95rem;
+    }
+
+    .bg-triangle {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .triangle-svg {
+        width: 100px;
+        height: 100px;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .about, .status {
+        padding: 60px 0;
+    }
+}
+
